@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Brewscape</title>
+  <meta name="description" content="Brewscape – Where every cup tells a story. Premium single-origin coffee, artisan pastries, and a warm atmosphere." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">☕</span>
+      <span class="logo-text">Brewscape</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link active">About</a></li>
+      <li><a href="menu.html" class="nav-link" target="_blank" rel="noopener">Menu</a></li>
+      <li><a href="gallery.html" class="nav-link" target="_blank" rel="noopener">Gallery</a></li>
+      <li><a href="testimonials.html" class="nav-link" target="_blank" rel="noopener">Reviews</a></li>
+      <li><a href="contact.html" class="nav-link" target="_blank" rel="noopener">Contact</a></li>
+    </ul>
+    <a href="menu.html" class="nav-cta" target="_blank" rel="noopener">Order Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <!-- ABOUT SECTION (copied from main site) -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-images reveal-left">
+            <div class="about-img-main">
+              <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&q=80" alt="Brewscape coffee shop interior" class="about-photo" />
+            </div>
+            <div class="about-img-secondary">
+              <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&q=80" alt="Barista pouring coffee" class="about-photo-sm" />
+            </div>
+            <div class="about-img-badge">
+              <span class="badge-year">EST.</span>
+              <span class="badge-num">2014</span>
+            </div>
+          </div>
+          <div class="about-text reveal-right">
+            <p class="section-tag">Our Story</p>
+            <h2 class="section-title">Crafted With Passion,<br/>Served With Love</h2>
+            <p class="about-desc">
+              Born in 2014 from a dream of creating the perfect cup, Brewscape has grown from a
+              small corner café into a beloved destination for coffee enthusiasts. We source our
+              beans directly from sustainable farms across Ethiopia, Colombia, and Guatemala.
+            </p>
+            <div class="about-features">
+              <div class="feature">
+                <div class="feature-icon">🌱</div>
+                <div>
+                  <h4>Sustainably Sourced</h4>
+                  <p>Direct trade with ethical farms worldwide</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">🔥</div>
+                <div>
+                  <h4>Freshly Roasted</h4>
+                  <p>Small-batch roasting every single day</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">❤️</div>
+                <div>
+                  <h4>Made With Love</h4>
+                  <p>Expert baristas crafting every drink</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (copied from main site) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <span class="logo-icon">☕</span>
+            <span class="logo-text">Brewscape</span>
+          </a>
+          <p>Where every cup tells a story. Handcrafted coffee made with love since 2014.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-link">f</a>
+            <a href="#" aria-label="Instagram" class="social-link">📷</a>
+            <a href="#" aria-label="Twitter" class="social-link">𝕏</a>
+            <a href="#" aria-label="TikTok" class="social-link">♪</a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" target="_blank" rel="noopener">About Us</a></li>
+            <li><a href="menu.html" target="_blank" rel="noopener">Menu</a></li>
+            <li><a href="gallery.html" target="_blank" rel="noopener">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Subscribe for seasonal menus, events, and exclusive offers.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="your@email.com" required />
+            <button type="submit">→</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Brewscape Coffee. All rights reserved. Crafted with ☕ & ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

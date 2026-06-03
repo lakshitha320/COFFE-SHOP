@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — Brewscape</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .checkout-wrap{padding:3rem 1rem;max-width:1100px;margin:0 auto}
+    .checkout-intro{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:2rem;flex-wrap:wrap}
+    .checkout-intro h1{font-family:var(--ff-display);font-size:clamp(2.2rem,4vw,3rem);margin-bottom:0.4rem}
+    .checkout-grid{display:grid;grid-template-columns:1.9fr 1fr;gap:24px}
+    .checkout-cart,.checkout-summary-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:28px}
+    .checkout-cart h2,.checkout-summary-card h2{margin-bottom:1rem}
+    .cart-list{min-height:240px}
+    .checkout-item{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+    .checkout-item:last-child{border-bottom:none}
+    .checkout-item .remove-item{margin-left:0.75rem;background:none;border:none;color:#ff7b7b;cursor:pointer;font-size:0.95rem}
+    .checkout-item strong{font-size:1rem}
+    .ci-controls{display:flex;align-items:center;gap:0.5rem;margin-top:0.65rem}
+    .ci-qty{min-width:30px;text-align:center;font-weight:700}
+    .summary-row{display:flex;justify-content:space-between;align-items:center;padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+    .summary-row strong{font-size:0.95rem}
+    .summary-total{font-size:1.15rem;font-weight:800;color:var(--accent)}
+    .payment-methods{display:flex;flex-direction:column;gap:14px;margin:1rem 0}
+    .payment-methods label{display:flex;align-items:center;gap:12px;color:var(--text-primary);font-weight:500}
+    .payment-note{font-size:0.9rem;color:var(--text-muted);line-height:1.6;margin-top:0.5rem}
+    .card-fields{display:grid;gap:1rem;margin-bottom:1rem}
+    .card-fields input{width:100%;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.05);color:#fff;outline:none}
+    .btn-pay{display:inline-block;padding:0.95rem 1.6rem;background:linear-gradient(135deg,var(--coffee-400),var(--coffee-600));color:#fff;border-radius:14px;border:none;cursor:pointer;font-weight:700;transition:var(--transition)}
+    .btn-pay:disabled{opacity:0.55;cursor:not-allowed}
+    .empty-note{padding:2rem;text-align:center;color:var(--text-muted)}
+    .continue-link{padding:0.9rem 1.4rem;border-radius:14px;border:1px solid rgba(255,255,255,0.12);color:#fff;display:inline-flex;align-items:center;gap:8px;transition:var(--transition)}
+    .continue-link:hover{background:rgba(255,255,255,0.05)}
+    @media(max-width:900px){.checkout-grid{grid-template-columns:1fr}.checkout-intro{align-items:flex-start}}
+    @media(max-width:650px){.checkout-wrap{padding:2rem 1rem}}
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-icon">☕</span>
+      <span class="logo-text">Brewscape</span>
+    </a>
+  </nav>
+
+  <main class="checkout-wrap">
+    <div class="checkout-intro">
+      <div>
+        <p class="section-tag">Checkout</p>
+        <h1>Finish your order</h1>
+        <p class="payment-note">Review your cart, choose a payment method, and complete your order securely. If you want to add more items, continue shopping.</p>
+      </div>
+      <a href="menu.html" class="continue-link">Continue shopping</a>
+    </div>
+
+    <div class="checkout-grid">
+      <section class="checkout-cart">
+        <h2>Cart Summary</h2>
+        <div id="cartList" class="cart-list"></div>
+        <p id="emptyMessage" class="empty-note" style="display:none">Your cart is empty. Add items from the <a href="menu.html">menu</a>.</p>
+      </section>
+
+      <aside class="checkout-summary-card">
+        <h2>Payment</h2>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="cartTotal">$0.00</strong>
+        </div>
+        <div class="summary-row">
+          <span>Service</span>
+          <span>Free</span>
+        </div>
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <strong id="cartTotalFinal">$0.00</strong>
+        </div>
+
+        <form id="paymentForm">
+          <div class="payment-methods">
+            <label><input type="radio" name="paymentMethod" value="Card" checked/> Card</label>
+            <label><input type="radio" name="paymentMethod" value="Cash on Delivery"/> Cash on Delivery</label>
+          </div>
+
+          <div id="cardFields" class="card-fields">
+            <input type="text" name="cardNumber" placeholder="Card number" required />
+            <div style="display:grid;grid-template-columns:1fr 120px;gap:0.75rem;">
+              <input type="text" name="expiry" placeholder="MM/YY" required />
+              <input type="text" name="cvc" placeholder="CVC" required />
+            </div>
+          </div>
+
+          <p id="paymentHint" class="payment-note">Card payments are processed securely. For Cash on Delivery, your order will be confirmed immediately.</p>
+          <button type="submit" class="btn-pay" id="payButton">Pay Now</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // show/hide card fields based on method
+    const form = document.getElementById('paymentForm');
+    const cardFields = document.getElementById('cardFields');
+    form.addEventListener('change', (e) => {
+      if (form.paymentMethod.value === 'Card') cardFields.style.display = '';
+      else cardFields.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
