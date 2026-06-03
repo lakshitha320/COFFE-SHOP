@@ -141,7 +141,7 @@ Business contact information and social connectivity.
 
 GitHub: https://github.com/lakshitha320
 
-LinkedIn: Add your LinkedIn profile link here
+LinkedIn: www.linkedin.com/in/chanaka-sadaruwan-b0b745320
 
 ## 📄 License
 
